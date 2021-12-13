@@ -63,10 +63,12 @@ describe('Ztech Automation', () => {
     })
 
     it('should return a correct calculation of the sum of the selected items in the cart', ()=>{
+      // emptying the cart
       cy.get('.bag__quantity').eq(0).click()
       cy.get('.shelf-item__del').eq(0).click()
       cy.get('.shelf-item__del').eq(0).click()
       cy.get('.float-cart__close-btn').click()
+      // adding  items to the cart
       cy.get(".shelf-item__thumb").eq(3).click()
       cy.get('.float-cart__close-btn').click()
       cy.get(".shelf-item__thumb").eq(1).click()
