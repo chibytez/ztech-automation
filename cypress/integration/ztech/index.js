@@ -64,8 +64,14 @@ describe('Ztech Automation', () => {
 
     it('should return a correct calculation of the sum of the selected items in the cart', ()=>{
       cy.get('.bag__quantity').eq(0).click()
+      cy.get('.shelf-item__del').eq(0).click()
+      cy.get('.shelf-item__del').eq(0).click()
+      cy.get('.float-cart__close-btn').click()
+      cy.get(".shelf-item__thumb").eq(3).click()
+      cy.get('.float-cart__close-btn').click()
+      cy.get(".shelf-item__thumb").eq(1).click()
       // asseting the total amount o
-      cy.get('.sub-price__val').should('have.text','$ 40.35')
+      cy.get('.sub-price__val').should('have.text','$ 43.45')
       cy.get('.float-cart__close-btn').click()
     })
 
@@ -86,7 +92,7 @@ describe('Ztech Automation', () => {
     it('should checkout items on the cart', ()=>{
       cy.get('.bag__quantity').eq(0).click()
       cy.get('.buy-btn').click()
-      cy.wait(2000)
+      cy.wait(1000)
       cy.get('.float-cart__close-btn').click()
     })
 
