@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 
-
 describe('Ztech Automation', () => {
     before('Launch url',()=>{
         cy.visit("https://react-shopping-cart-67954.firebaseapp.com/")
