@@ -50,7 +50,7 @@ describe('Ztech Automation', () => {
       cy.get('.bag__quantity').eq(0).click()
       cy.get('.change-product-button').eq(1).click()
       // asserting the quantity of the selected item in the cart
-      cy.get('.desc').eq(0).should('have.text', 'X | Preta com listras brancas Quantity: 2')
+      cy.get('.desc').eq(0).should('contain', 'Quantity: 2')
       cy.get('.float-cart__close-btn').click()
     })
 
@@ -58,7 +58,7 @@ describe('Ztech Automation', () => {
       cy.get('.bag__quantity').eq(0).click()
       cy.get('.change-product-button').eq(0).click()
       // asserting the quantity of the selected item in the cart
-      cy.get('.desc').eq(0).should('have.text', 'X | Preta com listras brancas Quantity: 1')
+      cy.get('.desc').eq(0).should('contain', 'Quantity: 1')
       cy.get('.float-cart__close-btn').click()
     })
 
