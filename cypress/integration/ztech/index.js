@@ -47,6 +47,7 @@ describe('Ztech Automation', () => {
     })
 
     it('should add to the quantity of a selected item by clicking on the plus icon', ()=>{
+      cy.wait(200)
       cy.get('.bag__quantity').eq(0).click()
       cy.get('.change-product-button').eq(1).click()
       // asserting the quantity of the selected item in the cart
@@ -55,6 +56,7 @@ describe('Ztech Automation', () => {
     })
 
     it('should reduce the quantity of a selected item by clicking the minus botton', ()=>{
+      cy.wait(200)
       cy.get('.bag__quantity').eq(0).click()
       cy.get('.change-product-button').eq(0).click()
       // asserting the quantity of the selected item in the cart
@@ -94,7 +96,7 @@ describe('Ztech Automation', () => {
     it('should checkout items on the cart', ()=>{
       cy.get('.bag__quantity').eq(0).click()
       cy.get('.buy-btn').click()
-      cy.wait(1000)
+      cy.wait(200)
       cy.get('.float-cart__close-btn').click()
     })
 
