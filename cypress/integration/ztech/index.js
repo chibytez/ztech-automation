@@ -73,8 +73,20 @@ describe('Ztech Automation', () => {
       cy.get(".shelf-item__thumb").eq(3).click()
       cy.get('.float-cart__close-btn').click()
       cy.get(".shelf-item__thumb").eq(1).click()
-      // asseting the total amount o
-      cy.get('.sub-price__val').should('have.text','$ 43.45')
+      let total = 0; 
+      cy.get('.float-cart__shelf-container > div > .shelf-item__price').then($prices =>{
+      $prices.toArray().map($el=>{
+        total += parseFloat($el.innerText.substr(1))
+      })
+      console.log('am here:', total);
+      })
+      // asseting the total amount is equal to th result
+      let result
+      cy.get('.sub-price > p').then($price =>{
+        console.log('still here:', $price.text().substring(1));
+        result = parseFloat($price.text().substring(1))
+        expect(result).eq(total)
+      })
       cy.get('.float-cart__close-btn').click()
     })
 
